@@ -5,6 +5,12 @@ public class Cena {
     private String titulo;
     private String descricao;
 
+    public Cena(Integer idCena, String titulo, String descricao) {
+        this.idCena = idCena;
+        this.titulo = titulo;
+        this.descricao = descricao;
+    }
+
     public Integer getIdCena() {
         return idCena;
     }

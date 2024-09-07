@@ -8,6 +8,15 @@ public class Comandos {
     private Integer idCenaAtual;
     private Integer idCenaDestino;
 
+    public Comandos(Integer idComando, String comando, String resultadoPositivo, Integer idComandoObj, Integer idCenaAtual, Integer idCenaDestino) {
+        this.idComando = idComando;
+        this.comando = comando;
+        this.resultadoPositivo = resultadoPositivo;
+        this.idComandoObj = idComandoObj;
+        this.idCenaAtual = idCenaAtual;
+        this.idCenaDestino = idCenaDestino;
+    }
+
     public Integer getIdCenaDestino() {
         return idCenaDestino;
     }

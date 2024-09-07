@@ -3,8 +3,17 @@ package model;
 public class Objeto {
     private Integer idObjeto;
     private String nomeObjeto;
-    private String descricaoCheck;
+    private String descricaoCheck; // Campo para a descrição do objeto
     private boolean inventarioBool;
+    private Integer idCenaObjeto;
+
+    public Objeto(Integer idObjeto, String nomeObjeto, String descricaoCheck, boolean inventarioBool, Integer idCenaObjeto) {
+        this.idObjeto = idObjeto;
+        this.nomeObjeto = nomeObjeto;
+        this.descricaoCheck = descricaoCheck;
+        this.inventarioBool = inventarioBool;
+        this.idCenaObjeto = idCenaObjeto;
+    }
 
     public Integer getIdObjeto() {
         return idObjeto;
@@ -38,6 +47,14 @@ public class Objeto {
         this.inventarioBool = inventarioBool;
     }
 
+    public Integer getIdCenaObjeto() {
+        return idCenaObjeto;
+    }
+
+    public void setIdCenaObjeto(Integer idCenaObjeto) {
+        this.idCenaObjeto = idCenaObjeto;
+    }
+
     @Override
     public String toString() {
         return "Objeto{" +
@@ -45,6 +62,7 @@ public class Objeto {
                 ", nomeObjeto='" + nomeObjeto + '\'' +
                 ", descricaoCheck='" + descricaoCheck + '\'' +
                 ", inventarioBool=" + inventarioBool +
+                ", idCenaObjeto=" + idCenaObjeto +
                 '}';
     }
 }

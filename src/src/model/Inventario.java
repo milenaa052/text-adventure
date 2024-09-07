@@ -4,6 +4,11 @@ public class Inventario {
     private Integer idInventario;
     private Integer idInventarioObj;
 
+    public Inventario(Integer idInventario, Integer idInventarioObj) {
+        this.idInventario = idInventario;
+        this.idInventarioObj = idInventarioObj;
+    }
+
     public Integer getIdInventario() {
         return idInventario;
     }
