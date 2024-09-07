@@ -17,36 +17,15 @@ public class Comandos {
         this.idCenaDestino = idCenaDestino;
     }
 
-    public Integer getIdCenaDestino() {
-        return idCenaDestino;
+    public Comandos() {
     }
 
-    public void setIdCenaDestino(Integer idCenaDestino) {
-        this.idCenaDestino = idCenaDestino;
+    public Integer getIdComando() {
+        return idComando;
     }
 
-    public Integer getIdCenaAtual() {
-        return idCenaAtual;
-    }
-
-    public void setIdCenaAtual(Integer idCenaAtual) {
-        this.idCenaAtual = idCenaAtual;
-    }
-
-    public Integer getIdComandoObj() {
-        return idComandoObj;
-    }
-
-    public void setIdComandoObj(Integer idComandoObj) {
-        this.idComandoObj = idComandoObj;
-    }
-
-    public String getResultadoPositivo() {
-        return resultadoPositivo;
-    }
-
-    public void setResultadoPositivo(String resultadoPositivo) {
-        this.resultadoPositivo = resultadoPositivo;
+    public void setIdComando(Integer idComando) {
+        this.idComando = idComando;
     }
 
     public String getComando() {
@@ -57,12 +36,36 @@ public class Comandos {
         this.comando = comando;
     }
 
-    public Integer getIdComando() {
-        return idComando;
+    public String getResultadoPositivo() {
+        return resultadoPositivo;
     }
 
-    public void setIdComando(Integer idComando) {
-        this.idComando = idComando;
+    public void setResultadoPositivo(String resultadoPositivo) {
+        this.resultadoPositivo = resultadoPositivo;
+    }
+
+    public Integer getIdComandoObj() {
+        return idComandoObj;
+    }
+
+    public void setIdComandoObj(Integer idComandoObj) {
+        this.idComandoObj = idComandoObj;
+    }
+
+    public Integer getIdCenaAtual() {
+        return idCenaAtual;
+    }
+
+    public void setIdCenaAtual(Integer idCenaAtual) {
+        this.idCenaAtual = idCenaAtual;
+    }
+
+    public Integer getIdCenaDestino() {
+        return idCenaDestino;
+    }
+
+    public void setIdCenaDestino(Integer idCenaDestino) {
+        this.idCenaDestino = idCenaDestino;
     }
 
     @Override

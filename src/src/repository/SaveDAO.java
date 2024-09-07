@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class SaveDAO {
     public static Save findSaveById(Integer id) throws SQLException {
-
         Connection conn = MySql.getConnection();
         String sql = "SELECT * FROM save WHERE idSave = ?";
 
@@ -18,11 +17,14 @@ public class SaveDAO {
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
-        Save save = new Save();
+        Save save = null;
 
         if (rs.next()) {
-            save.setIdSave(rs.getInt("idSave"));
-            save.setIdSaveCenaAtual(rs.getInt("idSaveCenaAtual"));
+            save = new Save(
+                    rs.getInt("idSave"),
+                    rs.getInt("idSaveCenaAtual"),
+                    rs.getString("data")
+            );
         }
         return save;
     }

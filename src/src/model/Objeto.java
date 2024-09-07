@@ -3,10 +3,11 @@ package model;
 public class Objeto {
     private Integer idObjeto;
     private String nomeObjeto;
-    private String descricaoCheck; // Campo para a descrição do objeto
+    private String descricaoCheck;
     private boolean inventarioBool;
     private Integer idCenaObjeto;
 
+    // Construtor com todos os parâmetros
     public Objeto(Integer idObjeto, String nomeObjeto, String descricaoCheck, boolean inventarioBool, Integer idCenaObjeto) {
         this.idObjeto = idObjeto;
         this.nomeObjeto = nomeObjeto;
@@ -15,6 +16,11 @@ public class Objeto {
         this.idCenaObjeto = idCenaObjeto;
     }
 
+    // Construtor padrão (sem argumentos)
+    public Objeto() {
+    }
+
+    // Getters e Setters
     public Integer getIdObjeto() {
         return idObjeto;
     }

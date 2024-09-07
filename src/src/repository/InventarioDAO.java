@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class InventarioDAO {
     public static Inventario findInventarioById(Integer id) throws SQLException {
-
         Connection conn = MySql.getConnection();
         String sql = "SELECT * FROM inventario WHERE idInventario = ?";
 
@@ -18,16 +17,18 @@ public class InventarioDAO {
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
-        Inventario inventario = new Inventario();
+        Inventario inventario = null;
 
         if (rs.next()) {
-            inventario.setIdInventario(rs.getInt("idInventario"));
-            inventario.setIdInventarioObj(rs.getInt("idInventarioObj"));
+            inventario = new Inventario(
+                    rs.getInt("idInventario"),
+                    rs.getInt("idInventarioObj")
+            );
         }
         return inventario;
     }
 
-    public void adicionarAoInventario(int idObjeto) throws  SQLException {
+    public void adicionarAoInventario(int idObjeto) throws SQLException {
         String sql = "INSERT INTO inventario (idInventarioObj) VALUES (?)";
 
         try (Connection conn = MySql.getConnection();
@@ -36,6 +37,5 @@ public class InventarioDAO {
             ps.setInt(1, idObjeto);
             ps.executeUpdate();
         }
-
     }
 }

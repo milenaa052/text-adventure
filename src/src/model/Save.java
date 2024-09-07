@@ -5,6 +5,15 @@ public class Save {
     private Integer idSaveCenaAtual;
     private String data;
 
+    public Save(Integer idSave, Integer idSaveCenaAtual, String data) {
+        this.idSave = idSave;
+        this.idSaveCenaAtual = idSaveCenaAtual;
+        this.data = data;
+    }
+
+    public Save() {
+    }
+
     public Integer getIdSave() {
         return idSave;
     }

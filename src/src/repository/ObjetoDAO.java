@@ -9,21 +9,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ObjetoDAO {
-    public static Objeto findObjetoById(Integer id) throws SQLException {
-
+    public static Objeto findObjetoByNome(String nome) throws SQLException {
         Connection conn = MySql.getConnection();
-        String sql = "SELECT * FROM objeto WHERE idObjeto = ?";
+        String sql = "SELECT * FROM objeto WHERE nomeObjeto = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, id);
+        ps.setString(1, nome);
 
         ResultSet rs = ps.executeQuery();
-        Objeto objeto = new Objeto();
+        Objeto objeto = null;
 
         if (rs.next()) {
+            objeto = new Objeto();
             objeto.setIdObjeto(rs.getInt("idObjeto"));
             objeto.setNomeObjeto(rs.getString("nomeObjeto"));
+            objeto.setDescricaoCheck(rs.getString("descricaoCheck"));
         }
         return objeto;
     }
 }
+

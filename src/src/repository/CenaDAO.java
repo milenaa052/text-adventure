@@ -10,19 +10,21 @@ import java.sql.SQLException;
 
 public class CenaDAO {
     public static Cena findCenaById(Integer id) throws SQLException {
-
         Connection conn = MySql.getConnection();
-        String sql = "SELECT descricao FROM cena WHERE idCena = ?";
+        String sql = "SELECT * FROM cena WHERE idCena = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
-        Cena cena = new Cena();
+        Cena cena = null;
 
         if (rs.next()) {
-
-            cena.setDescricao(rs.getString("descricao"));
+            cena = new Cena(
+                    rs.getInt("idCena"),
+                    rs.getString("titulo"),
+                    rs.getString("descricao")
+            );
         }
         return cena;
     }
@@ -39,11 +41,14 @@ public class CenaDAO {
         ps.setInt(1, idCenaDestino);
 
         ResultSet rs = ps.executeQuery();
-        Cena cena = new Cena();
+        Cena cena = null;
 
         if (rs.next()) {
-            cena.setIdCena(rs.getInt("idCena"));
-            cena.setDescricao(rs.getString("descricao"));
+            cena = new Cena(
+                    rs.getInt("idCena"),
+                    rs.getString("titulo"),
+                    rs.getString("descricao")
+            );
         }
         return cena;
     }

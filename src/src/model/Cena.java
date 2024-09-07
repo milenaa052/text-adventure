@@ -11,6 +11,9 @@ public class Cena {
         this.descricao = descricao;
     }
 
+    public Cena() {
+    }
+
     public Integer getIdCena() {
         return idCena;
     }

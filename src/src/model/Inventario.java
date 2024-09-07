@@ -9,6 +9,9 @@ public class Inventario {
         this.idInventarioObj = idInventarioObj;
     }
 
+    public Inventario() {
+    }
+
     public Integer getIdInventario() {
         return idInventario;
     }
