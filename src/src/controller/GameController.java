@@ -6,6 +6,14 @@ import repository.ObjetoDAO;
 import java.sql.SQLException;
 
 public class GameController {
+    private Integer idCenaAtual;
+
+    public GameController(Integer idCenaAtual) {
+        this.idCenaAtual = idCenaAtual;
+    }
+
+    public GameController() {
+    }
 
     public String processarComando(String comandoUser) {
         String[] partes = comandoUser.split(" ", 2);
@@ -15,17 +23,14 @@ public class GameController {
         try {
             if ("check".equalsIgnoreCase(comando)) {
                 return processarCheck(argumento);
-            }
-            // Adicione outros comandos aqui
-            else {
-                return "Comando não reconhecido. Tente novamente.";
+            } else {
+                return "Comando não reconhecido, tente novamente.";
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Ocorreu um erro ao processar o comando.";
+            return "Erro ao processar o comando.";
         }
     }
-
 
     private String processarCheck(String argumento) throws SQLException {
         if (argumento.isEmpty()) {
@@ -36,7 +41,15 @@ public class GameController {
             Objeto objeto = ObjetoDAO.findObjetoByNome(argumento);
 
             if (objeto != null) {
-                return objeto.getDescricaoCheck();
+                Integer idCenaObjeto = objeto.getIdCenaObjeto();
+                System.out.println("ID da Cena Atual: " + idCenaAtual);
+                System.out.println("ID da Cena do Objeto: " + idCenaObjeto);
+
+                if (idCenaObjeto != null && idCenaObjeto.equals(idCenaAtual)) {
+                    return objeto.getDescricaoCheck();
+                } else {
+                    return "Opa amigo, esse objeto não está na cena atual.";
+                }
             } else {
                 return "Opa amigo, esse objeto não existe.";
             }
@@ -45,5 +58,4 @@ public class GameController {
             return "Erro ao processar o comando.";
         }
     }
-
 }

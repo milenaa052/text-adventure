@@ -4,23 +4,8 @@ public class Objeto {
     private Integer idObjeto;
     private String nomeObjeto;
     private String descricaoCheck;
-    private boolean inventarioBool;
-    private Integer idCenaObjeto;
+    private Integer idCenaObjeto; // Verifique se esse campo está presente
 
-    // Construtor com todos os parâmetros
-    public Objeto(Integer idObjeto, String nomeObjeto, String descricaoCheck, boolean inventarioBool, Integer idCenaObjeto) {
-        this.idObjeto = idObjeto;
-        this.nomeObjeto = nomeObjeto;
-        this.descricaoCheck = descricaoCheck;
-        this.inventarioBool = inventarioBool;
-        this.idCenaObjeto = idCenaObjeto;
-    }
-
-    // Construtor padrão (sem argumentos)
-    public Objeto() {
-    }
-
-    // Getters e Setters
     public Integer getIdObjeto() {
         return idObjeto;
     }
@@ -45,14 +30,6 @@ public class Objeto {
         this.descricaoCheck = descricaoCheck;
     }
 
-    public boolean isInventarioBool() {
-        return inventarioBool;
-    }
-
-    public void setInventarioBool(boolean inventarioBool) {
-        this.inventarioBool = inventarioBool;
-    }
-
     public Integer getIdCenaObjeto() {
         return idCenaObjeto;
     }
@@ -67,7 +44,6 @@ public class Objeto {
                 "idObjeto=" + idObjeto +
                 ", nomeObjeto='" + nomeObjeto + '\'' +
                 ", descricaoCheck='" + descricaoCheck + '\'' +
-                ", inventarioBool=" + inventarioBool +
                 ", idCenaObjeto=" + idCenaObjeto +
                 '}';
     }

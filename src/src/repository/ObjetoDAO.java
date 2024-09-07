@@ -24,8 +24,14 @@ public class ObjetoDAO {
             objeto.setIdObjeto(rs.getInt("idObjeto"));
             objeto.setNomeObjeto(rs.getString("nomeObjeto"));
             objeto.setDescricaoCheck(rs.getString("descricaoCheck"));
+
+            // Verifique se a coluna realmente existe e se o nome está correto
+            if (rs.getObject("idCenaObjeto") != null) {
+                objeto.setIdCenaObjeto(rs.getInt("idCenaObjeto"));
+            } else {
+                objeto.setIdCenaObjeto(null);
+            }
         }
         return objeto;
     }
 }
-
