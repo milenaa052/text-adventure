@@ -28,9 +28,11 @@ public class ObjetoDAO {
         return objeto;
     }
 
-    public static Objeto findObjetoByNome(String nome) throws SQLException {
+    public static Objeto findObjetoByNome(String nome) throws SQLException { // puxa o nome do objeto junto com o id da cena q é dele
         Connection conn = MySql.getConnection();
-        String sql = "SELECT * FROM objeto WHERE nomeObjeto = ?";
+        String sql = "SELECT objeto.*, cena.idCena FROM objeto " +
+                "INNER JOIN cena ON objeto.idCenaObjeto = cena.idCena " +
+                "WHERE objeto.nomeObjeto = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, nome);
@@ -43,8 +45,10 @@ public class ObjetoDAO {
             objeto.setIdObjeto(rs.getInt("idObjeto"));
             objeto.setNomeObjeto(rs.getString("nomeObjeto"));
             objeto.setDescricaoCheck(rs.getString("descricaoCheck"));
+            objeto.setIdCenaObjeto(rs.getInt("idCenaObjeto"));
         }
         return objeto;
     }
+
 }
 

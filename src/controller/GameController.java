@@ -19,7 +19,6 @@ public class GameController {
         return cenaAtualId;
     }
 
-
     public String processarComando(String comandoUser) { //recebe o comando do usuário para fazer o processamento
         try {
             Comandos comandos = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId); //busca comandos no banco de dados
@@ -27,7 +26,7 @@ public class GameController {
             if (comandos != null && comandos.getResultadoPositivo() != null) { //se o comando for encontrado e tiver o resultado positivo o método continua
                 String resultado = comandos.getResultadoPositivo(); //exibe resultado positivo após o usuário digitar o comando certo
 
-                if (comandos.getIdCenaDestino() != null && comandos.getIdCenaDestino() != 0) { // Se o idCenaDestino estiver definido e não for 0, atualiza o cenaAtualId e retorna o resultado positivo seguido pela descrição da nova cena.
+                if (comandos.getIdCenaDestino() != null && comandos.getIdCenaDestino() != 0) { // se o idCenaDestino estiver definido e não for 0 atualiza o cenaAtualId e retorna o resultado positivo seguido pela descrição da prox cena
                     this.cenaAtualId = comandos.getIdCenaDestino();
                     return resultado + "\n" + CenaDAO.findCenaById(cenaAtualId).getDescricao();
                 }
@@ -41,23 +40,31 @@ public class GameController {
         }
     }
 
+    // função processarCheck com a verificação da cena do objeto
     public String processarCheck(String comandoUser) {
-        String[] partes = comandoUser.split(" ", 2); //divide o comando digitado pelo usuário em duas partes check + obejto
-        String check = partes[0]; //declara na variaável check a primeira palavra digitada pelo usuário
+        String[] partes = comandoUser.split(" ", 2); //divide o comando digitado pelo usuário em duas partes check + objeto
+        String check = partes[0]; //declara na variável check a primeira palavra digitada pelo usuário
         String argumento = partes.length > 1 ? partes[1] : ""; //declara na variável argumento a segunda palavra digitada pelo usuário
 
         try {
 
             if ("check".equalsIgnoreCase(check)) { //verifica se o valor da variável check é igual ao "check"
-                if (argumento.isEmpty()) { //verifica se o argumento não está vazio
+                if (argumento.isEmpty()) { //verifica se o argumento está vazio
                     return "Opa amigo, você precisa digitar o nome de um objeto.";
                 }
 
                 try {
-                    Objeto objeto = ObjetoDAO.findObjetoByNome(argumento); //encontrar objeto pelo nome
+                    Objeto objeto = ObjetoDAO.findObjetoByNome(argumento); //encontra objeto pelo nome
 
-                    if (objeto != null) { //se o obj não for nulo retorna a descrição do check
-                        return objeto.getDescricaoCheck();
+                    if (objeto != null) { //se o obj não for nulo, verifica a cena
+                        Integer idCenaObjeto = objeto.getIdCenaObjeto();
+
+                        // verifica se o objeto ta na cena atual
+                        if (idCenaObjeto != null && idCenaObjeto.equals(cenaAtualId)) {
+                            return objeto.getDescricaoCheck();
+                        } else {
+                            return "Opa amigo, esse objeto não está na cena atual.";
+                        }
                     } else {
                         return "Opa amigo, esse objeto não existe.";
                     }

@@ -12,7 +12,7 @@ public class Main {
             GameController gameController = new GameController(cenaInicialId); //cria instância do game controller passando o id 1
             Scanner scanner = new Scanner(System.in);
 
-            Cena cenaAtual = CenaDAO.findCenaById(gameController.getCenaAtualId()); // Obtém a cena atual usando o ID da cena do gameController.
+            Cena cenaAtual = CenaDAO.findCenaById(gameController.getCenaAtualId()); // pega a cena atual usando o id da cena do gameController
             if (cenaAtual != null) { //se a cena não for nula exibe a descrição da cena atual
                 System.out.println(cenaAtual.getDescricao());
             }

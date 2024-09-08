@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/text-adventure.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/text-adventure.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/config/MySql.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/controller/GameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/model/Cena.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/model/Comandos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/model/Inventario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/model/Objeto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/model/Save.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/repository/CenaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/repository/ComandosDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/repository/InventarioDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/repository/ObjetoDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/repository/SaveDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/config/MySql.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/controller/GameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/model/Cena.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/model/Comandos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/model/Inventario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/model/Objeto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/model/Save.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/repository/CenaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/repository/ComandosDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/repository/InventarioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/repository/ObjetoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/repository/SaveDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ObjetoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ObjetoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,47 +24,61 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "milenaa052"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;milenaa052&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/milenaa052/text-adventure.git",
-    "accountId": "f46a47ed-f406-42ef-8c27-75fc05398ee8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/milenaa052/text-adventure.git&quot;,
+    &quot;accountId&quot;: &quot;f46a47ed-f406-42ef-8c27-75fc05398ee8&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2llWumPB3ypy4I4MQbgxVLzXpEC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "development",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="controller" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="text-adventure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
