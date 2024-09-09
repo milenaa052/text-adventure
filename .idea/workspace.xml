@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="">
+    <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="validando check, juntamente com os comandos get, use etc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/ObjetoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ObjetoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,19 @@
       <option name="presentableId" value="Default" />
       <updated>1725755371161</updated>
     </task>
+    <task id="LOCAL-00001" summary="validando check, juntamente com os comandos get, use etc">
+      <option name="closed" value="true" />
+      <created>1725835449023</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725835449023</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="validando check, juntamente com os comandos get, use etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="validando check, juntamente com os comandos get, use etc" />
   </component>
 </project>
