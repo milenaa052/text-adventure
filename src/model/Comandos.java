@@ -7,17 +7,16 @@ public class Comandos {
     private Integer idComandoObj;
     private Integer idCenaAtual;
     private Integer idCenaDestino;
+    private Integer sequencia;
 
-    public Comandos(Integer idComando, String comando, String resultadoPositivo, Integer idComandoObj, Integer idCenaAtual, Integer idCenaDestino) {
+    public Comandos(Integer idComando, String comando, String resultadoPositivo, Integer idComandoObj, Integer idCenaAtual, Integer idCenaDestino, Integer sequencia) {
         this.idComando = idComando;
         this.comando = comando;
         this.resultadoPositivo = resultadoPositivo;
         this.idComandoObj = idComandoObj;
         this.idCenaAtual = idCenaAtual;
         this.idCenaDestino = idCenaDestino;
-    }
-
-    public Comandos() {
+        this.sequencia = sequencia;
     }
 
     public Integer getIdComando() {
@@ -68,6 +67,14 @@ public class Comandos {
         this.idCenaDestino = idCenaDestino;
     }
 
+    public Integer getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(Integer sequencia) {
+        this.sequencia = sequencia;
+    }
+
     @Override
     public String toString() {
         return "Comandos{" +
@@ -77,6 +84,7 @@ public class Comandos {
                 ", idComandoObj=" + idComandoObj +
                 ", idCenaAtual=" + idCenaAtual +
                 ", idCenaDestino=" + idCenaDestino +
+                ", sequencia=" + sequencia +
                 '}';
     }
 }

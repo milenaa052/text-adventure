@@ -10,9 +10,13 @@ import java.sql.SQLException;
 
 public class GameController {
     private int cenaAtualId; // armazena o id da cena atual do jogo
+    private int sequenciaAtual; //armazena a sequenciaAtual
+
 
     public GameController(int cenaInicialId) { // Recebe o ID da cena inicial e o define como cenaAtualId. Isso inicia o jogo na cena especificada.
         this.cenaAtualId = cenaInicialId;
+        this.sequenciaAtual = 1; //declara a sequencia atual como 1
+
     }
 
     public int getCenaAtualId() { //Retorna o ID da cena atual. É útil para acessar a cena atual fora da classe.
@@ -21,18 +25,31 @@ public class GameController {
 
     public String processarComando(String comandoUser) { //recebe o comando do usuário para fazer o processamento
         try {
-            Comandos comandos = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId); //busca comandos no banco de dados
+            Comandos comandos = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId);
 
-            if (comandos != null && comandos.getResultadoPositivo() != null) { //se o comando for encontrado e tiver o resultado positivo o método continua
-                String resultado = comandos.getResultadoPositivo(); //exibe resultado positivo após o usuário digitar o comando certo
+            if (comandos != null && comandos.getResultadoPositivo() != null) {
 
-                if (comandos.getIdCenaDestino() != null && comandos.getIdCenaDestino() != 0) { // se o idCenaDestino estiver definido e não for 0 atualiza o cenaAtualId e retorna o resultado positivo seguido pela descrição da prox cena
-                    this.cenaAtualId = comandos.getIdCenaDestino();
-                    return resultado + "\n" + CenaDAO.findCenaById(cenaAtualId).getDescricao();
+                // Verifica se a sequência é null ou se o comando está na ordem correta
+                if (comandos.getSequencia() == null || comandos.getSequencia() == sequenciaAtual) {
+                    String resultado = comandos.getResultadoPositivo();
+
+                    // Incrementa a sequência atual apenas se a sequência não for null
+                    if (comandos.getSequencia() != null) {
+                        sequenciaAtual++;
+                    }
+
+                    // Verifica se há uma cena de destino e a atualiza
+                    if (comandos.getIdCenaDestino() != null && comandos.getIdCenaDestino() != 0) {
+                        this.cenaAtualId = comandos.getIdCenaDestino();
+                        this.sequenciaAtual = 1;
+                        return resultado + "\n" + CenaDAO.findCenaById(cenaAtualId).getDescricao();
+                    }
+                    return resultado;
+                } else {
+                    return "Você está tentando executar os comandos fora de ordem. Tente novamente.";
                 }
-                return resultado;
             } else {
-                return processarCheck(comandoUser); //se não exibe a função processarCheck
+                return processarCheck(comandoUser);
             }
         } catch (SQLException e) {
             e.printStackTrace();

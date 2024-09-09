@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="validando check, juntamente com os comandos get, use etc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Comandos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Comandos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/ComandosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/ComandosDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
