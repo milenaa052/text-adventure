@@ -24,9 +24,8 @@ public class Main {
                 System.out.println(resultado); //exibe resultado
 
                 if(comandoUser.equalsIgnoreCase("QUIT")) { //condicional para encerrar o jogo
-                    System.out.println("Saindo do jogo...");
                     break;
-                }
+                };
             }
 
         } catch (SQLException e) {
