@@ -4,11 +4,10 @@ public class Objeto {
     private Integer idObjeto;
     private String nomeObjeto;
     private String descricaoCheck;
-    private boolean inventarioBool;
+    private Integer inventarioBool;
     private Integer idCenaObjeto;
 
-    // Construtor com todos os parâmetros
-    public Objeto(Integer idObjeto, String nomeObjeto, String descricaoCheck, boolean inventarioBool, Integer idCenaObjeto) {
+    public Objeto(Integer idObjeto, String nomeObjeto, String descricaoCheck, Integer inventarioBool, Integer idCenaObjeto) {
         this.idObjeto = idObjeto;
         this.nomeObjeto = nomeObjeto;
         this.descricaoCheck = descricaoCheck;
@@ -20,21 +19,20 @@ public class Objeto {
     public Objeto() {
     }
 
-    // Getters e Setters
-    public Integer getIdObjeto() {
-        return idObjeto;
+    public Integer getIdCenaObjeto() {
+        return idCenaObjeto;
     }
 
-    public void setIdObjeto(Integer idObjeto) {
-        this.idObjeto = idObjeto;
+    public void setIdCenaObjeto(Integer idCenaObjeto) {
+        this.idCenaObjeto = idCenaObjeto;
     }
 
-    public String getNomeObjeto() {
-        return nomeObjeto;
+    public Integer getInventarioBool() {
+        return inventarioBool;
     }
 
-    public void setNomeObjeto(String nomeObjeto) {
-        this.nomeObjeto = nomeObjeto;
+    public void setInventarioBool(Integer inventarioBool) {
+        this.inventarioBool = inventarioBool;
     }
 
     public String getDescricaoCheck() {
@@ -45,20 +43,20 @@ public class Objeto {
         this.descricaoCheck = descricaoCheck;
     }
 
-    public boolean isInventarioBool() {
-        return inventarioBool;
+    public String getNomeObjeto() {
+        return nomeObjeto;
     }
 
-    public void setInventarioBool(boolean inventarioBool) {
-        this.inventarioBool = inventarioBool;
+    public void setNomeObjeto(String nomeObjeto) {
+        this.nomeObjeto = nomeObjeto;
     }
 
-    public Integer getIdCenaObjeto() {
-        return idCenaObjeto;
+    public Integer getIdObjeto() {
+        return idObjeto;
     }
 
-    public void setIdCenaObjeto(Integer idCenaObjeto) {
-        this.idCenaObjeto = idCenaObjeto;
+    public void setIdObjeto(Integer idObjeto) {
+        this.idObjeto = idObjeto;
     }
 
     @Override

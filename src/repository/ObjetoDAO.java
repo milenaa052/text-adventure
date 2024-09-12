@@ -45,6 +45,7 @@ public class ObjetoDAO {
             objeto.setIdObjeto(rs.getInt("idObjeto"));
             objeto.setNomeObjeto(rs.getString("nomeObjeto"));
             objeto.setDescricaoCheck(rs.getString("descricaoCheck"));
+            objeto.setInventarioBool(rs.getInt("inventarioBool"));
             objeto.setIdCenaObjeto(rs.getInt("idCenaObjeto"));
         }
         return objeto;

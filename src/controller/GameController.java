@@ -4,9 +4,12 @@ import model.Comandos;
 import repository.CenaDAO;
 import repository.ComandosDAO;
 import model.Objeto;
+import repository.InventarioDAO;
 import repository.ObjetoDAO;
 
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class GameController {
     private int cenaAtualId; // armazena o id da cena atual do jogo
@@ -23,16 +26,60 @@ public class GameController {
         return cenaAtualId;
     }
 
-    public String processarComando(String comandoUser) { //recebe o comando do usuário para fazer o processamento
+    public String processarComando(String comandoUser) {
         try {
+            // Comando "get" para pegar objetos, agora com verificação da coluna inventarioBool
+            if (comandoUser.startsWith("get ")) {
+                String[] partes = comandoUser.split(" ");
+                if (partes.length > 1) {
+                    String nomeObjeto = partes[1];
+
+                    // Verificar se o objeto existe no banco de dados
+                    Objeto objeto = ObjetoDAO.findObjetoByNome(nomeObjeto);
+                    if (objeto == null) {
+                        return "Esse objeto não existe.";
+                    }
+
+                    // Verificar se o objeto já está no inventário
+                    if (InventarioDAO.isObjetoNoInventario(objeto.getIdObjeto())) {
+                        return "Objeto já foi adicionado ao inventário.";
+                    }
+
+                    //verifica se o objeto pode ser adcionado ao inventário ou não
+                    if(objeto.getInventarioBool().equals(0)) {
+                        return "Como que você vai adicionar este objeto em um inventário?????????";
+                    }
+
+                    // Adicionar ao inventário
+                    InventarioDAO.adicionarAoInventario(objeto.getIdObjeto());
+
+                    // Agora, validar se o comando "get" faz parte da sequência
+                    Comandos comandoGet = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId);
+
+                    if (comandoGet != null && comandoGet.getSequencia() == sequenciaAtual) {
+                        sequenciaAtual++; // Incrementa a sequência após o comando correto
+                    }
+
+                    return "Objeto " + nomeObjeto + " adicionado ao inventário.";
+                }
+                return "Comando inválido. Tente 'get [objeto]'.";
+            }
+
+            // Comando "inventory" para exibir o inventário
+            if (comandoUser.equalsIgnoreCase("inventory")) {
+                return listarInventario();
+            }
+
             if (comandoUser.equalsIgnoreCase("HELP")) {
                 return processarHelp(comandoUser);
             }
 
             if (comandoUser.equalsIgnoreCase("QUIT")) {
+                InventarioDAO.limparInventario();
                 return "Saindo do jogo...";
             }
 
+            // Tratamento dos outros comandos (como 'use')
             Comandos comandos = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId);
 
             if (comandos != null && comandos.getResultadoPositivo() != null) {
@@ -59,11 +106,13 @@ public class GameController {
             } else {
                 return processarCheck(comandoUser);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return "Ocorreu um erro ao processar o comando.";
         }
     }
+
 
     // função processarCheck com a verificação da cena do objeto
     public String processarCheck(String comandoUser) {
@@ -120,5 +169,18 @@ public class GameController {
                     "RESTART: reinicia o jogo");
         }
         return "";
+    }
+
+    public String listarInventario() throws SQLException {
+        List<Objeto> objetos = InventarioDAO.listarInventario();
+        if (objetos.isEmpty()) {
+            return "O inventário está vazio.";
+        }
+
+        StringBuilder inventarioStr = new StringBuilder("Itens no inventário:\n");
+        for (Objeto objeto : objetos) {
+            inventarioStr.append("- ").append(objeto.getNomeObjeto()).append("\n");
+        }
+        return inventarioStr.toString();
     }
 }
