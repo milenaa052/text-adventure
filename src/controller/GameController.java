@@ -17,34 +17,37 @@ public class GameController {
     private int cenaAtualId; // armazena o id da cena atual do jogo
     private int sequenciaAtual; // armazena a sequência atual
 
-    public GameController(int cenaInicialId) { // Recebe o ID da cena inicial e o define como cenaAtualId. Isso inicia o jogo na cena especificada.
-        this.cenaAtualId = cenaInicialId;
-        this.sequenciaAtual = 1; // declara a sequência atual como 1
+    // Construtor que inicializa o GameController com a cena inicial
+    public GameController(int cenaInicialId) {
+        this.cenaAtualId = cenaInicialId; // define a cena inicial
+        this.sequenciaAtual = 1; // inicializa a sequência atual como 1
     }
 
-    public int getCenaAtualId() { // Retorna o ID da cena atual. É útil para acessar a cena atual fora da classe.
+    // Getter para obter o ID da cena atual
+    public int getCenaAtualId() {
         return cenaAtualId;
     }
 
+    // Processa o comando do usuário e retorna a resposta apropriada
     public String processarComando(String comandoUser) {
         try {
             // Comando para salvar o progresso do jogo
             if (comandoUser.startsWith("save ")) {
-                String[] partes = comandoUser.split(" "); // Divide o comando para obter o ID de salvamento
+                String[] partes = comandoUser.split(" ");
                 if (partes.length > 1) {
                     try {
-                        int saveId = Integer.parseInt(partes[1]); // Converte o ID de salvamento para inteiro
+                        int saveId = Integer.parseInt(partes[1]); // ID de salvamento fornecido pelo usuário
                         SaveDAO.salvarProgresso(cenaAtualId, saveId); // Salva o progresso no banco de dados
                         return "Progresso salvo com sucesso no slot " + saveId + ".";
                     } catch (NumberFormatException e) {
-                        return "ID de salvamento inválido."; // Trata erro de formato do ID
+                        return "ID de salvamento inválido."; // Mensagem para ID de salvamento inválido
                     } catch (SQLException e) {
-                        // Verifica se o erro é uma tentativa de inserir um slot já existente
-                        if (e.getErrorCode() == 1062) { // Código de erro SQL para duplicidade de entrada
+                        // Verifica se o erro é devido a uma entrada duplicada
+                        if (e.getErrorCode() == 1062) {
                             return "O slot de salvamento " + partes[1] + " já está em uso. Escolha um slot diferente.";
                         }
                         e.printStackTrace();
-                        return "Erro ao salvar o progresso."; // Trata erro ao salvar progresso
+                        return "Erro ao salvar o progresso."; // Mensagem para erro geral ao salvar
                     }
                 }
                 return "Comando inválido. Tente 'save [ID]'.";
@@ -52,24 +55,24 @@ public class GameController {
 
             // Comando para carregar o progresso do jogo
             if (comandoUser.startsWith("load ")) {
-                String[] partes = comandoUser.split(" "); // Divide o comando para obter o ID de salvamento
+                String[] partes = comandoUser.split(" ");
                 if (partes.length > 1) {
                     try {
-                        int saveId = Integer.parseInt(partes[1]); // Converte o ID de salvamento para inteiro
-                        int cenaId = SaveDAO.carregarProgresso(saveId); // Carrega a cena associada ao ID de salvamento
+                        int saveId = Integer.parseInt(partes[1]); // ID de salvamento fornecido pelo usuário
+                        int cenaId = SaveDAO.carregarProgresso(saveId); // Carrega o progresso do banco de dados
                         if (cenaId != -1) {
-                            cenaAtualId = cenaId; // Atualiza a cena atual com a cena carregada
-                            sequenciaAtual = 1; // Reinicia a sequência para 1
-                            Cena cenaAtual = CenaDAO.findCenaById(cenaAtualId); // Encontra a descrição da nova cena
+                            cenaAtualId = cenaId; // Atualiza a cena atual
+                            sequenciaAtual = 1; // Reinicia a sequência
+                            Cena cenaAtual = CenaDAO.findCenaById(cenaAtualId); // Obtém a descrição da cena
                             return "Progresso carregado com sucesso. " + cenaAtual.getDescricao();
                         } else {
-                            return "ID de salvamento não encontrado."; // Trata caso em que o ID de salvamento não é encontrado
+                            return "ID de salvamento não encontrado."; // Mensagem se o ID de salvamento não existir
                         }
                     } catch (NumberFormatException e) {
-                        return "ID de salvamento inválido."; // Trata erro de formato do ID
+                        return "ID de salvamento inválido."; // Mensagem para ID de salvamento inválido
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        return "Erro ao carregar o progresso."; // Trata erro ao carregar progresso
+                        return "Erro ao carregar o progresso."; // Mensagem para erro geral ao carregar
                     }
                 }
                 return "Comando inválido. Tente 'load [ID]'.";
@@ -78,9 +81,9 @@ public class GameController {
             // Comando para listar todos os salvamentos disponíveis
             if (comandoUser.equalsIgnoreCase("load")) {
                 try {
-                    List<Integer> saves = SaveDAO.listarSaves(); // Lista todos os IDs de salvamento disponíveis
+                    List<Integer> saves = SaveDAO.listarSaves(); // Obtém a lista de salvamentos
                     if (saves.isEmpty()) {
-                        return "Nenhum salvamento encontrado."; // Informa que não há salvamentos disponíveis
+                        return "Nenhum salvamento encontrado."; // Mensagem se não houver salvamentos
                     }
                     StringBuilder salvaList = new StringBuilder("Salvamentos disponíveis:\n");
                     for (int saveId : saves) {
@@ -89,30 +92,40 @@ public class GameController {
                     return salvaList.toString();
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    return "Erro ao listar salvamentos."; // Trata erro ao listar salvamentos
+                    return "Erro ao listar salvamentos."; // Mensagem para erro ao listar salvamentos
                 }
+            }
+
+            // Comando para reiniciar o jogo
+            if (comandoUser.equalsIgnoreCase("RESTART")) {
+                // Voltar para a cena inicial e limpar o inventário
+                cenaAtualId = 1; // Cena inicial
+                sequenciaAtual = 1; // Reinicia a sequência
+                InventarioDAO.limparInventario(); // Limpa o inventário
+                Cena cenaAtual = CenaDAO.findCenaById(cenaAtualId); // Obtém a descrição da cena inicial
+                return "Jogo reiniciado. " + cenaAtual.getDescricao();
             }
 
             // Comando para pegar objetos (adicionar ao inventário)
             if (comandoUser.startsWith("get ")) {
-                String[] partes = comandoUser.split(" "); // Divide o comando para obter o nome do objeto
+                String[] partes = comandoUser.split(" ");
                 if (partes.length > 1) {
-                    String nomeObjeto = partes[1]; // Obtém o nome do objeto
+                    String nomeObjeto = partes[1]; // Nome do objeto fornecido pelo usuário
 
                     // Verificar se o objeto existe no banco de dados
                     Objeto objeto = ObjetoDAO.findObjetoByNome(nomeObjeto);
                     if (objeto == null) {
-                        return "Esse objeto não existe."; // Informa que o objeto não existe
+                        return "Esse objeto não existe."; // Mensagem se o objeto não for encontrado
                     }
 
                     // Verificar se o objeto já está no inventário
                     if (InventarioDAO.isObjetoNoInventario(objeto.getIdObjeto())) {
-                        return "Objeto já foi adicionado ao inventário."; // Informa que o objeto já está no inventário
+                        return "Objeto já foi adicionado ao inventário."; // Mensagem se o objeto já estiver no inventário
                     }
 
                     // Verifica se o objeto pode ser adicionado ao inventário
                     if (objeto.getInventarioBool().equals(0)) {
-                        return "Como que você vai adicionar este objeto em um inventário?????????"; // Informa que o objeto não pode ser adicionado
+                        return "Como que você vai adicionar este objeto em um inventário?????????"; // Mensagem para objeto não permitidos no inventário
                     }
 
                     // Adicionar ao inventário
@@ -122,35 +135,34 @@ public class GameController {
                     Comandos comandoGet = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId);
 
                     if (comandoGet != null && comandoGet.getSequencia() == sequenciaAtual) {
-                        sequenciaAtual++; // Incrementa a sequência após o comando correto
+                        sequenciaAtual++; // Incrementa a sequência atual
                     }
 
-                    return "Objeto " + nomeObjeto + " adicionado ao inventário.";
+                    return "Objeto " + nomeObjeto + " adicionado ao inventário."; // Mensagem de sucesso
                 }
                 return "Comando inválido. Tente 'get [objeto]'.";
             }
 
             // Comando "inventory" para exibir o inventário
             if (comandoUser.equalsIgnoreCase("inventory")) {
-                return listarInventario(); // Lista todos os itens do inventário
+                return listarInventario(); // Chama o método para listar o inventário
             }
 
             // Comando "HELP" para exibir informações de ajuda
             if (comandoUser.equalsIgnoreCase("HELP")) {
-                return processarHelp(comandoUser);
+                return processarHelp(comandoUser); // Chama o método para processar ajuda
             }
 
             // Comando "QUIT" para encerrar o jogo e limpar o inventário
             if (comandoUser.equalsIgnoreCase("QUIT")) {
                 InventarioDAO.limparInventario(); // Limpa o inventário
-                return "Saindo do jogo...";
+                return "Saindo do jogo..."; // Mensagem de saída
             }
 
             // Processamento de comandos gerais
             Comandos comandos = ComandosDAO.findComandosByNameAndCena(comandoUser, cenaAtualId);
 
             if (comandos != null && comandos.getResultadoPositivo() != null) {
-
                 // Verifica se a sequência é null ou se o comando está na ordem correta
                 if (comandos.getSequencia() == null || comandos.getSequencia() == sequenciaAtual) {
                     String resultado = comandos.getResultadoPositivo();
@@ -162,99 +174,72 @@ public class GameController {
 
                     // Verifica se há uma cena de destino e a atualiza
                     if (comandos.getIdCenaDestino() != null && comandos.getIdCenaDestino() != 0) {
-                        this.cenaAtualId = comandos.getIdCenaDestino();
-                        this.sequenciaAtual = 1;
-                        return resultado + "\n" + CenaDAO.findCenaById(cenaAtualId).getDescricao();
+                        this.cenaAtualId = comandos.getIdCenaDestino(); // Atualiza a cena atual
+                        this.sequenciaAtual = 1; // Reinicia a sequência
+                        return resultado + "\n" + CenaDAO.findCenaById(cenaAtualId).getDescricao(); // Retorna o resultado e a descrição da nova cena
                     }
-                    return resultado;
+                    return resultado; // Retorna o resultado do comando
                 } else {
-                    return "Você está tentando executar os comandos fora de ordem. Tente novamente.";
+                    return "Você está tentando executar os comandos fora de ordem. Tente novamente."; // Mensagem de erro de ordem de comandos
                 }
             } else {
-                return processarCheck(comandoUser); // Processa o comando de check
+                return processarCheck(comandoUser); // Chama o método para processar o comando de verificação
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Ocorreu um erro ao processar o comando."; // Trata erro genérico
+            return "Erro ao processar o comando."; // Mensagem para erro geral de processamento
         }
     }
 
+    // Processa o comando de verificação (CHECK) para exibir a descrição do objeto
+    public String processarCheck(String comandoUser) throws SQLException {
+        String[] partes = comandoUser.split(" ");
+        String check = partes[0]; // Comando "check"
+        String argumento = (partes.length > 1) ? partes[1] : null; // Argumento do comando "check"
 
-    // Função processarCheck com a verificação da cena do objeto
-    public String processarCheck(String comandoUser) {
-        String[] partes = comandoUser.split(" ", 2); // divide o comando digitado pelo usuário em duas partes check + objeto
-        String check = partes[0]; // declara na variável check a primeira palavra digitada pelo usuário
-        String argumento = partes.length > 1 ? partes[1] : ""; // declara na variável argumento a segunda palavra digitada pelo usuário
+        if (check.equalsIgnoreCase("check") && argumento != null) {
+            Objeto objeto = ObjetoDAO.findObjetoByNome(argumento); // Procura o objeto pelo nome
 
-        try {
-            if ("check".equalsIgnoreCase(check)) { // verifica se o valor da variável check é igual ao "check"
-                if (argumento.isEmpty()) { // verifica se o argumento está vazio
-                    return "Opa amigo, você precisa digitar o nome de um objeto.";
-                }
-
-                try {
-                    Objeto objeto = ObjetoDAO.findObjetoByNome(argumento); // encontra objeto pelo nome
-
-                    if (objeto != null) { // se o obj não for nulo, verifica a cena
-                        Integer idCenaObjeto = objeto.getIdCenaObjeto();
-
-                        // Verifica se o objeto está na cena atual
-                        if (idCenaObjeto != null && idCenaObjeto.equals(cenaAtualId)) {
-                            return objeto.getDescricaoCheck();
-                        } else {
-                            return "Opa amigo, esse objeto não está na cena atual.";
-                        }
-                    } else {
-                        return "Opa amigo, esse objeto não existe.";
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "Erro ao processar o comando.";
-                }
+            if (objeto != null) {
+                // Retorna a descrição do objeto encontrado
+                return objeto.getDescricaoCheck();
             } else {
-                return "Comando não reconhecido. Tente novamente.";
+                return "Esse objeto aí não existe."; // Mensagem se o objeto não for encontrado
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Ocorreu um erro ao processar o comando.";
         }
+        return "Comando inválido. Tente 'check [objeto]'.";
     }
 
+    // Processa o comando de ajuda (HELP)
     public String processarHelp(String comandoUser) {
         if (comandoUser.equalsIgnoreCase("HELP")) {
-            System.out.println("O objetivo do text adventure é o usuário interagir com os objetos descritos na cena (identificados pelos nomes em letra maiúsculas) para avançar no jogo. Os comandos possíveis são:\n\n" +
-                    "HELP: exibe o menu de ajuda do jogo\n" +
-                    "USE [ITEM]: interage com o item da cena\n" +
-                    "CHECK [ITEM]: mostra a descrição do objeto na cena\n" +
-                    "GET [ITEM]: Se possível, adiciona o item ao inventário\n" +
-                    "INVENTORY: mostra os itens que estão no inventário\n" +
-                    "USE [INVENTORY_ITEM] WITH [ITEM]: usa um item do inventário com um item da cena atual\n" +
-                    "SAVE [ID]: salva o progresso no slot especificado\n" +
-                    "LOAD [ID]: carrega o progresso do slot especificado\n" +
-                    "LOAD: lista todos os slots de salvamento disponíveis\n" +
-                    "QUIT: encerra o jogo e limpa o inventário\n" +
-                    "Para comandos específicos, consulte a documentação do jogo.");
-            return null;
+            return "Comandos disponíveis:\n" +
+                    "1. save [ID] - Salva o progresso no slot especificado.\n" +
+                    "2. load [ID] - Carrega o progresso do slot especificado.\n" +
+                    "3. load - Lista todos os salvamentos disponíveis.\n" +
+                    "4. get [objeto] - Adiciona o objeto especificado ao inventário.\n" +
+                    "5. inventory - Exibe os itens do inventário.\n" +
+                    "6. RESTART - Reinicia o jogo e limpa o inventário.\n" +
+                    "7. QUIT - Encerra o jogo e limpa o inventário.\n";
         }
-        return "Comando de ajuda inválido.";
+        return "Comando HELP não reconhecido."; // Mensagem se o comando HELP não for reconhecido
     }
 
-    // Listar itens no inventário
+    // Lista os itens do inventário
     public String listarInventario() {
         try {
-            List<Objeto> inventario = InventarioDAO.listarInventario();
+            List<Objeto> inventario = InventarioDAO.listarInventario(); // Obtém a lista de objetos no inventário
             if (inventario.isEmpty()) {
-                return "O inventário está vazio.";
+                return "Seu inventário está vazio."; // Mensagem se o inventário estiver vazio
             }
-            StringBuilder sb = new StringBuilder("Itens no inventário:\n");
+            StringBuilder inventarioList = new StringBuilder("Itens no inventário:\n");
             for (Objeto objeto : inventario) {
-                sb.append("- ").append(objeto.getNomeObjeto()).append("\n");
+                inventarioList.append("- ").append(objeto.getNomeObjeto()).append("\n"); // Adiciona cada objeto à lista
             }
-            return sb.toString();
+            return inventarioList.toString();
         } catch (SQLException e) {
             e.printStackTrace();
-            return "Erro ao listar o inventário.";
+            return "Erro ao listar o inventário."; // Mensagem para erro ao listar o inventário
         }
     }
 }

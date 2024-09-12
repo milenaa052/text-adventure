@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="validando check, juntamente com os comandos get, use etc">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario">
       <change beforePath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/SaveDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/SaveDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/SaveDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/SaveDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +58,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "comando-save",
+    "git-widget-placeholder": "comando-restart",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -106,11 +101,20 @@
       <option name="project" value="LOCAL" />
       <updated>1725835449023</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario">
+      <option name="closed" value="true" />
+      <created>1726177155782</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726177155782</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="validando check, juntamente com os comandos get, use etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="validando check, juntamente com os comandos get, use etc" />
+    <MESSAGE value="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario" />
   </component>
 </project>
