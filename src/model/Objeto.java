@@ -14,8 +14,6 @@ public class Objeto {
         this.inventarioBool = inventarioBool;
         this.idCenaObjeto = idCenaObjeto;
     }
-
-    // Construtor padrão (sem argumentos)
     public Objeto() {
     }
 

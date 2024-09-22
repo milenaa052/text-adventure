@@ -28,28 +28,4 @@ public class CenaDAO {
         }
         return cena;
     }
-
-    public static Cena findCenaByDestinoId(Integer idCenaDestino) throws SQLException {
-        if (idCenaDestino == null) {
-            return null;
-        }
-
-        Connection conn = MySql.getConnection();
-        String sql = "SELECT * FROM cena WHERE idCena = ?";
-
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, idCenaDestino);
-
-        ResultSet rs = ps.executeQuery();
-        Cena cena = null;
-
-        if (rs.next()) {
-            cena = new Cena(
-                    rs.getInt("idCena"),
-                    rs.getString("titulo"),
-                    rs.getString("descricao")
-            );
-        }
-        return cena;
-    }
 }

@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario">
+      <change afterPath="$PROJECT_DIR$/src/service/CheckHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/GetHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/HelpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/ListarInventarioHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/ListarLoadHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/RestartHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/SaveHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/UseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/text-adventure/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/model/Comandos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/model/Comandos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/model/Objeto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/model/Objeto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/CenaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/CenaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/ComandosDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/ComandosDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/InventarioDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/InventarioDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/ObjetoDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/text-adventure/repository/SaveDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/repository/SaveDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/DatabaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/SaveDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/SaveDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +75,11 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "refatoração",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
