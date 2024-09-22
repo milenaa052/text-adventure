@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaveDAO {
-
-    // Salva o progresso do jogo
     public static void salvarProgresso(int cenaAtualId, int saveId) throws SQLException {
         String query = "INSERT INTO save (idSave, idSaveCenaAtual) VALUES (?, ?)";
 
@@ -23,7 +21,6 @@ public class SaveDAO {
         }
     }
 
-    // Carrega o progresso com base no ID do save
     public static int carregarProgresso(int saveId) throws SQLException {
         String query = "SELECT idSaveCenaAtual FROM save WHERE idSave = ?";
 
@@ -34,12 +31,11 @@ public class SaveDAO {
             if (rs.next()) {
                 return rs.getInt("idSaveCenaAtual");
             } else {
-                return -1; // Indica que o salvamento não foi encontrado
+                return -1;
             }
         }
     }
 
-    // Lista todos os IDs de salvamento
     public static List<Integer> listarSaves() throws SQLException {
         String query = "SELECT idSave FROM save";
         List<Integer> saves = new ArrayList<>();
@@ -54,7 +50,6 @@ public class SaveDAO {
         return saves;
     }
 
-    // Limpa o save
     public static void limparSave() throws SQLException {
         String sql = "DELETE FROM save";
         try (Connection conn = MySql.getConnection();
