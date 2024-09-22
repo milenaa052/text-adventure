@@ -10,31 +10,31 @@ public class Main {
         try {
             Scanner scanner = new Scanner(System.in);
 
-            // Exibe a mensagem inicial e espera pelo comando START
             System.out.println("Digite START para iniciar o jogo");
             String comandoInicial;
+
             do {
                 comandoInicial = scanner.nextLine().trim();
                 if (!comandoInicial.equalsIgnoreCase("START")) {
                     System.out.println("Comando inválido. Digite START para iniciar o jogo.");
                 }
-            } while (!comandoInicial.equalsIgnoreCase("START")); // Só prossegue quando o comando for "START"
+            } while (!comandoInicial.equalsIgnoreCase("START"));
 
-            int cenaInicialId = 1; //define o id da cena inicial como 1
-            GameController gameController = new GameController(cenaInicialId); //cria instância do game controller passando o id 1
+            int cenaInicialId = 1;
+            GameController gameController = new GameController(cenaInicialId);
+            Cena cenaAtual = CenaDAO.findCenaById(gameController.getCenaAtualId());
 
-            Cena cenaAtual = CenaDAO.findCenaById(gameController.getCenaAtualId()); // pega a cena atual usando o id da cena do gameController
-            if (cenaAtual != null) { //se a cena não for nula exibe a descrição da cena atual
+            if (cenaAtual != null) {
                 System.out.println(cenaAtual.getDescricao());
             }
 
             while (true) {
-                String comandoUser = scanner.nextLine().trim(); //atribuindo comando do usuário
-                String resultado = gameController.processarComando(comandoUser); //carrega a função processarComando
+                String comandoUser = scanner.nextLine().trim();
+                String resultado = gameController.processarComando(comandoUser);
 
-                System.out.println(resultado); //exibe resultado
+                System.out.println(resultado);
 
-                if(comandoUser.equalsIgnoreCase("QUIT")) { //condicional para encerrar o jogo
+                if(comandoUser.equalsIgnoreCase("QUIT")) {
                     break;
                 };
             }
