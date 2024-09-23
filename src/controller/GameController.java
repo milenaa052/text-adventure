@@ -3,10 +3,13 @@ package controller;
 import model.Comandos;
 import repository.*;
 import service.*;
+import spark.Request;
+import spark.Response;
+import spark.Route;
 
 import java.sql.SQLException;
 
-public class GameController {
+public class GameController implements Route {
     private int cenaAtualId;
     private int sequenciaAtual;
 
@@ -83,5 +86,15 @@ public class GameController {
             e.printStackTrace();
             return "Ocorreu um erro ao processar o comando.";
         }
+    }
+
+    @Override
+    public Object handle(Request request, Response response) throws Exception {
+
+        String comandoBruto = request.params(":comando");
+        String resultado = processarComando(comandoBruto);
+
+        response.type("text/plain");
+        return resultado;
     }
 }
