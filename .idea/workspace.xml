@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sparkjava_spark_core1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/RoutesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/service/HelpHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/service/HelpHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/text-adventure/service/LoadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/text-adventure/service/LoadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/HelpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/HelpHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text-adventure.iml" beforeDir="false" afterPath="$PROJECT_DIR$/text-adventure.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="refatoração" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;milenaa052&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/milenaa052/text-adventure.git&quot;,
+    &quot;accountId&quot;: &quot;f46a47ed-f406-42ef-8c27-75fc05398ee8&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2llWumPB3ypy4I4MQbgxVLzXpEC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="text-adventure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a9d3843-f121-4837-b2d6-4127d682bb51" name="Changes" comment="" />
+      <created>1725755371161</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725755371161</updated>
+    </task>
+    <task id="LOCAL-00001" summary="validando check, juntamente com os comandos get, use etc">
+      <option name="closed" value="true" />
+      <created>1725835449023</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725835449023</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario">
+      <option name="closed" value="true" />
+      <created>1726177155782</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726177155782</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="validando check, juntamente com os comandos get, use etc" />
+    <MESSAGE value="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="tratando a mensagem de erro do salvamento de uma maneira amigavel ao usuario" />
+  </component>
+</project>
